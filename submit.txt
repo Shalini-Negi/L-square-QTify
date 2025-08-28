@@ -1,1 +1,1 @@
-https://your-deployed-vercel-link-here.vercel.app
+https://l-square-q-tify-ecru-alpha.vercel.app/
