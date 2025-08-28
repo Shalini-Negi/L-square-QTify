@@ -1,0 +1,660 @@
+/* QTify App Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Removed problematic tw-animate-css import and added proper CSS reset and animations */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Custom animations to replace tw-animate-css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Utility classes */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* QTify specific styles */
+.qtify-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.qtify-button {
+  background-color: #34c94b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.qtify-button:hover {
+  background-color: #2ba83d;
+  transform: translateY(-2px);
+}
+
+.qtify-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qtify-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card Component Styles */
+.card-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.chip-container {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.card-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #1e1e1e;
+  padding: 16px 24px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* SearchBar Styles */
+.search-container {
+  flex: 1;
+  max-width: 448px;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #4b5563;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #34c94b;
+  box-shadow: 0 0 0 2px rgba(52, 201, 75, 0.2);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  color: #9ca3af;
+}
+
+/* FeedbackButton Styles */
+.feedback-button {
+  background-color: black;
+  color: #34c94b;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: 1px solid #34c94b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.feedback-button:hover {
+  background-color: #1f2937;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  max-width: 448px;
+  margin: 0 16px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.modal-close {
+  color: #6b7280;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #374151;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #34c94b;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #34c94b;
+  box-shadow: 0 0 0 2px rgba(52, 201, 75, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-submit {
+  width: 100%;
+  background-color: #34c94b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+  background-color: #2ba83d;
+}
+
+/* HeroSection Styles */
+.hero-section {
+  background-color: black;
+  color: white;
+  padding: 64px 24px;
+}
+
+.hero-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.headphones-img {
+  width: 256px;
+  height: 256px;
+  object-fit: contain;
+}
+
+/* Section Styles */
+.section {
+  padding: 32px 24px;
+}
+
+.section-container {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.section-toggle {
+  color: #34c94b;
+  background: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.section-toggle:hover {
+  color: #2ba83d;
+}
+
+.section-loading {
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(159px, 1fr));
+  gap: 16px;
+  max-width: 100%;
+}
+
+/* Genre Tabs Styles */
+.genre-tabs {
+  margin-bottom: 24px;
+}
+
+.genre-tabs-container {
+  display: flex;
+  gap: 4px;
+  background-color: black;
+  border-radius: 8px;
+  padding: 4px;
+  display: inline-flex;
+}
+
+.genre-tab {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.genre-tab:hover {
+  color: #34c94b;
+}
+
+.genre-tab-active {
+  background-color: #34c94b;
+  color: white;
+}
+
+/* FAQ Section Styles */
+.faq-section {
+  padding: 64px 24px;
+}
+
+.faq-container {
+  max-width: 896px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 24px;
+  text-align: left;
+  background-color: #374151;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question:hover {
+  background-color: #4b5563;
+}
+
+.faq-question-text {
+  font-weight: 500;
+}
+
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  color: #34c94b;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon-open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 24px;
+  background-color: white;
+}
+
+.faq-answer-text {
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* MusicPlayer Styles */
+.music-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 16px;
+  border-top: 1px solid #4b5563;
+}
+
+.music-player-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.music-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.music-album-art {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+}
+
+.music-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.music-song-name {
+  font-weight: 500;
+}
+
+.music-album-name {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.music-control-btn {
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.music-control-btn:hover {
+  background-color: #4b5563;
+}
+
+.music-control-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.music-play-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.music-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.music-time {
+  font-size: 14px;
+}
+
+.music-progress-bar {
+  flex: 1;
+  background-color: #4b5563;
+  border-radius: 9999px;
+  height: 4px;
+  position: relative;
+}
+
+.music-progress-fill {
+  background-color: #34c94b;
+  height: 4px;
+  border-radius: 9999px;
+  width: 33.33%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .qtify-container {
+    padding: 0 15px;
+  }
+  
+  .navbar-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .search-container {
+    max-width: 100%;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 20px;
+  }
+  
+  .headphones-img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .section-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  .genre-tabs-container {
+    flex-wrap: wrap;
+  }
+  
+  .faq-title {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .faq-question,
+  .faq-answer {
+    padding: 16px;
+  }
+  
+  .music-player-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .music-progress {
+    min-width: 150px;
+  }
+}

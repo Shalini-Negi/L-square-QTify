@@ -1,0 +1,81 @@
+/* QTify Global Styles for Create React App */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* QTify Theme Variables */
+:root {
+  --qtify-primary: #34c94b;
+  --qtify-black: #121212;
+  --qtify-white: #ffffff;
+  --qtify-gray: #1e1e1e;
+}
+
+/* Custom Swiper Styles */
+.swiper-container {
+  padding: 0 20px;
+}
+
+.swiper-slide {
+  width: auto !important;
+}
+
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7) !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+  background: rgba(0, 0, 0, 0.9) !important;
+  transform: scale(1.1);
+}
+
+/* Hide default Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #34c94b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2ba83d;
+}
